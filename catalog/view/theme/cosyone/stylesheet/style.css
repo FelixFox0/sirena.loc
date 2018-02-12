@@ -1,0 +1,130 @@
+.open-popup{
+    text-transform: uppercase;
+}
+.logo img{
+    margin: 32px 0;
+}
+.footer_modules{
+    /*margin-top: 0px!important;*/
+}
+
+.quickcheckout-content .required{
+    height: 78px;
+}
+
+.quickcheckout-content .required index{
+    padding: 6px 12px;
+}
+
+.confirm #button-payment-method{
+    margin: 0 auto;
+}
+
+.cart_image{
+    height: 135px;
+    width: 135px;
+    background-position: center center !important;
+}
+
+.cart-scroll{
+    padding: 0 15px;
+}
+
+.cart_product_row{
+    margin-bottom: 90px;
+}
+
+.cart_product_row:last-child{
+    margin-bottom: 0px;
+}
+.cart-total-info__table td{
+    padding: 25px 0px 25px 40px!important;
+}
+.cart-total-info__title{
+    padding-bottom: 25px;
+}
+
+.product-layout__bage{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.product-layout:hover .product-layout__bage{
+    opacity: 0;
+    transition: .9s;
+}
+.product-layout:not(:hover) .product-layout__bage{
+    opacity: 1;
+    transition: 1.5s;
+}
+
+.product-cat-inline{
+    padding: 0px;
+}
+
+.category_top .filter_top, .category_top .sort_top{
+    text-transform: uppercase;
+    color: #212121;
+    margin: 0px -15px;
+    font-weight: 800;
+}
+
+.category_top .filter, .category_top .sort{
+    text-transform: uppercase;
+    color: #212121;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background: #fff;
+    width: max-content;
+    margin: 0 -15px;
+    padding: 15px 0;
+    font-size: 11px;
+    font-family: Ral-r;
+}
+
+.category_top .sort ._active{
+    text-decoration: underline;
+}
+
+.category_top .filter a, .category_top .sort a{
+    font-family: Ral-l;
+}
+
+.filter-group{
+    display: none;
+}
+
+input ~ span {
+    display: none;
+}
+input:checked ~ span {
+    display: inline;
+}
+input[type='checkbox']{
+    display: none;
+}
+
+input[type='checkbox']{
+    display: none;
+}
+
+label {
+    min-width: 165px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 100;
+}
+
+#button-filter{
+    display: block;
+    margin: 0px;
+}
+
+p.color{
+    height: 15px;
+    width: 27px;
+    float: left;
+    margin-right: 9px;
+    margin-bottom: 0px;
+}

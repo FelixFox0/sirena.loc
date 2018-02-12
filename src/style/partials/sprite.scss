@@ -1,0 +1,178 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$arrow-l-name: 'arrow-l';
+$arrow-l-x: 29px;
+$arrow-l-y: 21px;
+$arrow-l-offset-x: -29px;
+$arrow-l-offset-y: -21px;
+$arrow-l-width: 20px;
+$arrow-l-height: 15px;
+$arrow-l-total-width: 86px;
+$arrow-l-total-height: 61px;
+$arrow-l-image: '/image/sprite.png';
+$arrow-l: (29px, 21px, -29px, -21px, 20px, 15px, 86px, 61px, '/image/sprite.png', 'arrow-l', );
+$arrow-name: 'arrow';
+$arrow-x: 0px;
+$arrow-y: 0px;
+$arrow-offset-x: 0px;
+$arrow-offset-y: 0px;
+$arrow-width: 29px;
+$arrow-height: 19px;
+$arrow-total-width: 86px;
+$arrow-total-height: 61px;
+$arrow-image: '/image/sprite.png';
+$arrow: (0px, 0px, 0px, 0px, 29px, 19px, 86px, 61px, '/image/sprite.png', 'arrow', );
+$cart-name: 'cart';
+$cart-x: 50px;
+$cart-y: 0px;
+$cart-offset-x: -50px;
+$cart-offset-y: 0px;
+$cart-width: 19px;
+$cart-height: 22px;
+$cart-total-width: 86px;
+$cart-total-height: 61px;
+$cart-image: '/image/sprite.png';
+$cart: (50px, 0px, -50px, 0px, 19px, 22px, 86px, 61px, '/image/sprite.png', 'cart', );
+$cart2-name: 'cart2';
+$cart2-x: 50px;
+$cart2-y: 22px;
+$cart2-offset-x: -50px;
+$cart2-offset-y: -22px;
+$cart2-width: 17px;
+$cart2-height: 17px;
+$cart2-total-width: 86px;
+$cart2-total-height: 61px;
+$cart2-image: '/image/sprite.png';
+$cart2: (50px, 22px, -50px, -22px, 17px, 17px, 86px, 61px, '/image/sprite.png', 'cart2', );
+$glob-name: 'glob';
+$glob-x: 0px;
+$glob-y: 19px;
+$glob-offset-x: 0px;
+$glob-offset-y: -19px;
+$glob-width: 21px;
+$glob-height: 21px;
+$glob-total-width: 86px;
+$glob-total-height: 61px;
+$glob-image: '/image/sprite.png';
+$glob: (0px, 19px, 0px, -19px, 21px, 21px, 86px, 61px, '/image/sprite.png', 'glob', );
+$mail-name: 'mail';
+$mail-x: 17px;
+$mail-y: 40px;
+$mail-offset-x: -17px;
+$mail-offset-y: -40px;
+$mail-width: 22px;
+$mail-height: 16px;
+$mail-total-width: 86px;
+$mail-total-height: 61px;
+$mail-image: '/image/sprite.png';
+$mail: (17px, 40px, -17px, -40px, 22px, 16px, 86px, 61px, '/image/sprite.png', 'mail', );
+$man-name: 'man';
+$man-x: 0px;
+$man-y: 40px;
+$man-offset-x: 0px;
+$man-offset-y: -40px;
+$man-width: 17px;
+$man-height: 21px;
+$man-total-width: 86px;
+$man-total-height: 61px;
+$man-image: '/image/sprite.png';
+$man: (0px, 40px, 0px, -40px, 17px, 21px, 86px, 61px, '/image/sprite.png', 'man', );
+$phone-name: 'phone';
+$phone-x: 69px;
+$phone-y: 0px;
+$phone-offset-x: -69px;
+$phone-offset-y: 0px;
+$phone-width: 17px;
+$phone-height: 17px;
+$phone-total-width: 86px;
+$phone-total-height: 61px;
+$phone-image: '/image/sprite.png';
+$phone: (69px, 0px, -69px, 0px, 17px, 17px, 86px, 61px, '/image/sprite.png', 'phone', );
+$search-name: 'search';
+$search-x: 29px;
+$search-y: 0px;
+$search-offset-x: -29px;
+$search-offset-y: 0px;
+$search-width: 21px;
+$search-height: 21px;
+$search-total-width: 86px;
+$search-total-height: 61px;
+$search-image: '/image/sprite.png';
+$search: (29px, 0px, -29px, 0px, 21px, 21px, 86px, 61px, '/image/sprite.png', 'search', );
+$spritesheet-width: 86px;
+$spritesheet-height: 61px;
+$spritesheet-image: '/image/sprite.png';
+$spritesheet-sprites: ($arrow-l, $arrow, $cart, $cart2, $glob, $mail, $man, $phone, $search, );
+$spritesheet: (86px, 61px, '/image/sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
