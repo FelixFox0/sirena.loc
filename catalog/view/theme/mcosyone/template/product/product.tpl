@@ -7,12 +7,25 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.0/js/lightgallery-all.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.20/jquery.zoom.min.js"></script>
+<script src="/catalog/view/javascript/jquery.waitforimages.min.js" type="text/javascript"></script>
+<style type="text/css">div.image.plus {max-width: 256px;max-height: 256px;background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0ODUgNDg1IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0ODUgNDg1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCI+Cjxwb2x5Z29uIHBvaW50cz0iNDg1LDIyNy41IDI1Ny41LDIyNy41IDI1Ny41LDAgMjI3LjUsMCAyMjcuNSwyMjcuNSAwLDIyNy41IDAsMjU3LjUgMjI3LjUsMjU3LjUgMjI3LjUsNDg1IDI1Ny41LDQ4NSAyNTcuNSwyNTcuNSAgIDQ4NSwyNTcuNSAiIGZpbGw9IiMwMDAwMDAiLz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==)}</style>
 
+
+
+<?php
+//if(navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/)) {
+if(preg_match("/(iPhone|iPod|iPad|Android|BlackBerry)/",$_SERVER["HTTP_USER_AGENT"])) {
+ //var_dump($_SERVER['HTTP_USER_AGENT']);
+}
+?>
 
 <?php if ($label) { ?>
 <style>
     .owl-item:first-child li span:last-child{
         position: static !important;
+    }
+    .popup .product-layout__bage{
+        right: auto;
     }
 </style>
 <?php } ?>  
@@ -23,10 +36,18 @@
     
     
     
-    
+@media(min-width: 1200px){ 
     .product-page__image{
         max-width: 750px;
         margin: 0 auto;
+        height: 720px;
+        overflow: auto;
+        cursor: n-resize;
+        -ms-overflow-style: none; 
+        overflow: -moz-scrollbars-none;
+    }
+    .product-page__image::-webkit-scrollbar {
+        width: 0; 
     }
     
     .product-page__image__min{
@@ -34,19 +55,16 @@
     }
     .product-page__image__min__fix{
         width: 100px;
-        position: fixed;
+        /*position: fixed;*/
     }
     
     .product-page__info {
         margin-left: 0px;
-        position: fixed;
-        overflow: scroll;
+        /*position: fixed;*/
+        /*overflow: scroll;*/
         height: 730px;
     }
-    
-    .product-page__info__fix{
-        width: 320px;
-    }
+  
     
     .product-page__info::-webkit-scrollbar { 
         display: none; 
@@ -69,6 +87,74 @@
     #desctop_popup img{
         width: 100%;
     }
+    .popup{
+        text-align: center;
+    }
+    img.plus{
+        display: none;
+    }
+    #product{
+        height: min-content!important;
+    }
+}
+
+
+@media(max-width: 1200px){        
+    .product-page__image__min{
+        display: none;
+    }
+    
+    .popup .product-layout__bage{
+        right: 0px;
+        max-width: 53px!important;
+        position: absolute;
+        top: 40px;
+        right: 0px;
+        width: auto!important;
+    }
+    img.plus{
+        height: 26px;
+        position: absolute;
+        top: 40px;
+        right: 0px;
+        z-index: 1;
+        padding: 4px;
+        width: 26px!important;
+    }
+    #desctop_popup img.plus{
+        width: 80px!important;
+        height: 80px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        padding: 24px;
+        background: #fff;
+    }
+    
+    #desctop_popup {
+        position: fixed;
+        z-index: 9999;
+        width: 100%;
+        overflow: auto;
+        height: 103%;
+        display: none;
+        top: 0px;
+    }
+    
+    #desctop_popup div{
+        overflow: auto;
+        width: 700px;
+        height: 1269px;
+        background-size: contain!important;
+    }
+    
+    #desctop_popup::-webkit-scrollbar{
+        width: 0;
+    }
+    
+
+}
+    
 </style>
 
 <div id="desctop_popup">
@@ -146,10 +232,11 @@
 
 
 <div class="container">
-    <ul class="breadcrumb">
+    <ul class="breadcrumb" xmlns:v="http://rdf.data-vocabulary.org/#"><?php $breadcrumb_last = array_pop($breadcrumbs);  ?>
         <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-        <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+        <li typeof="v:Breadcrumb"><a href="<?php echo $breadcrumb['href']; ?>" rel="v:url" property="v:title"><?php echo $breadcrumb['text']; ?></a></li>
         <?php } ?>
+        <li><?php echo $breadcrumb_last['text']; ?></li>
     </ul>
 </div>
    <div class="row"><?php echo $column_left; ?>
@@ -160,7 +247,7 @@
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
-<div id="content" class="<?php echo $class; ?> product" itemscope itemtype="http://data-vocabulary.org/Product">
+<div id="content" class="<?php echo $class; ?> product">
   
 
   
@@ -173,14 +260,15 @@
               <?php if ($thumb) { ?>
               <?php if ($cosyone_product_zoom) { ?>
               <a href="<?php // echo $href; ?>#product_top">
-              <div data-thumb="<?php echo $thumb; ?>" data-src="<?php echo $popup_big; ?>">
+              <div>
                   
-                <img itemprop="image" src="<?php echo $popup_big; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $meta_title; ?>" />
+                <img src="<?php echo $popup_big; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $meta_title; ?>" />
+                
               </div>
               </a>
               <?php } else { ?>
               <li data-thumb="<?php echo $popup_big; ?>" data-src="<?php echo $popup_big; ?>">
-                <img itemprop="image" src="<?php echo $popup_big; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $meta_title; ?>" />
+                <img src="<?php echo $popup_big; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $meta_title; ?>" />
 
               </li>
               <?php } ?>
@@ -188,7 +276,7 @@
             <?php foreach ($images as $key=>$image) { ?>
                 <!--<a href="<?php echo $href . '#product' . $key; ?>">-->
                 <a href="<?php echo '#product' . $key; ?>">
-                    <div  data-thumb="<?php echo $image['thumb']; ?>" data-src="<?php echo $image['popup_big']; ?>">
+                    <div>
 
                         <img src="<?php echo $image['popup_big']; ?>" alt="<?php echo $meta_title; ?>" />
                     </div>
@@ -196,13 +284,24 @@
                 <?php } ?>
               </div>
           </div>
-          <div class="product-page__image" style="width: auto;">
+        <div class="product-page__image product-slider">
+
 
             
             <?php if ($thumb) { ?>
               <?php if ($cosyone_product_zoom) { ?>
               <div id="product_top" class="popup" data-thumb="<?php echo $thumb; ?>" data-src="<?php echo $popup; ?>">
-                <a href="<?php echo $popup_orig; ?>"><img itemprop="image" src="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $meta_title; ?>" /></a>
+                <?php if(preg_match("/(iPhone|iPod|iPad|Android|BlackBerry)/",$_SERVER["HTTP_USER_AGENT"])){ ?>
+                    <a href="<?php echo $popup_orig; ?>">
+                <?php }else{ ?>    
+                    <a href="<?php echo $popup_orig; ?>">
+                <?php } ?>    
+                    <img class="plus" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0ODUgNDg1IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0ODUgNDg1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCI+Cjxwb2x5Z29uIHBvaW50cz0iNDg1LDIyNy41IDI1Ny41LDIyNy41IDI1Ny41LDAgMjI3LjUsMCAyMjcuNSwyMjcuNSAwLDIyNy41IDAsMjU3LjUgMjI3LjUsMjU3LjUgMjI3LjUsNDg1IDI1Ny41LDQ4NSAyNTcuNSwyNTcuNSAgIDQ4NSwyNTcuNSAiIGZpbGw9IiMwMDAwMDAiLz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+    
+
+                    <img src="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $meta_title; ?>" />
+                </a>
+                
                 <?php if ($label) { ?>
                     <img src="<?php echo $label['label_image']; ?>" alt="<?php echo $label['label_name']; ?>" class="product-layout__bage">
                 <?php } ?>  
@@ -210,15 +309,21 @@
 
               <?php } else { ?>
               <li data-thumb="<?php echo $popup; ?>" data-src="<?php echo $popup; ?>">
-                <img itemprop="image" src="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $meta_title; ?>" />
+                <img src="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $meta_title; ?>" />
 
               </li>
               <?php } ?>
             <?php } ?>
             <?php foreach ($images as $key=>$image) { ?>
                 <div id="product<?php echo $key; ?>" class="popup" data-thumb="<?php echo $image['thumb']; ?>" data-src="<?php echo $image['popup']; ?>">
+                 <?php if(preg_match("/(iPhone|iPod|iPad|Android|BlackBerry)/",$_SERVER["HTTP_USER_AGENT"])){ ?>
+                  <a href="<?php echo $image['popup_orig']; ?>">
+                <?php }else{ ?> 
+                  <a href="<?php echo $image['popup_orig']; ?>">
+                <?php } ?>     
+                      <img class="plus" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0ODUgNDg1IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0ODUgNDg1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCI+Cjxwb2x5Z29uIHBvaW50cz0iNDg1LDIyNy41IDI1Ny41LDIyNy41IDI1Ny41LDAgMjI3LjUsMCAyMjcuNSwyMjcuNSAwLDIyNy41IDAsMjU3LjUgMjI3LjUsMjU3LjUgMjI3LjUsNDg1IDI1Ny41LDQ4NSAyNTcuNSwyNTcuNSAgIDQ4NSwyNTcuNSAiIGZpbGw9IiMwMDAwMDAiLz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
 
-                  <a href="<?php echo $image['popup_orig']; ?>"><img src="<?php echo $image['popup']; ?>" alt="<?php echo $meta_title; ?>" /></a>
+                      <img src="<?php echo $image['popup']; ?>" alt="<?php echo $meta_title; ?>" /></a>
                 </div>
                 <?php } ?>
 
@@ -227,20 +332,21 @@
       <div class="product-page__info__fix">
           <div class="product-page__info"  id="product">
           
-            <div class="product-page__title">
+            <div class="product-page__title" itemscope itemtype="http://data-vocabulary.org/Product">
               <h1 itemprop="name"><?php echo $heading_title; ?></h1>
             </div>
             <div class="product-page__price">
               <div class="cart">
          
                   <?php if ($price) { ?> 
-                  <div class="price">
-                    
+                  <div class="price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
                     <?php if (!$special) { ?>
-                    <span itemprop="price"><?php echo $price; ?></span>
+                    <span itemprop="price" content="<?php echo round((float)$price_seo, 2); ?>"><?php echo $price; ?></span>
+                    <span itemprop="priceCurrency" content="<?php echo $price_cur; ?>"></span>
                     <?php } else { ?>
                         <?php //if (!$cosyone_product_yousave) { ?>
-                        <span class="price-old"><?php echo $price; ?></span> <span class="price-new" itemprop="price"><?php echo $special; ?></span>
+                        <span class="price-old"><?php echo $price; ?></span> <span class="price-new" itemprop="price"  content="<?php echo round((float)$special_seo, 2); ?>"><?php echo $special; ?></span>
+                        <span itemprop="priceCurrency" content="<?php echo $price_cur; ?>"></span>
                         <?php //} ?>
                     <?php } ?>
                       
@@ -274,7 +380,11 @@
                 <div class="radio">
                   <label>
                     <input type="radio" name="option[<?php echo $option['product_option_id']; ?>]" value="<?php echo $option_value['product_option_value_id']; ?>" />
-                    <i>
+                    <?php if($option_value['preorder']){ ?>
+                        <i style="opacity: 0.6;" class="preorder">
+                    <?php }else{ ?>   
+                        <i>
+                    <?php } ?>
                     <?php echo $option_value['name']; ?>
                     <?php if ($option_value['price']) { ?>
                     (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
@@ -627,10 +737,11 @@
   <?php } ?>
   
   
-  <?php echo $content_bottom; ?></div>
+  <?php //echo $content_bottom; ?></div>
   <?php echo $column_right; ?></div>
 
 <script>
+if($(window).innerWidth() >= 1100) {
 $(document).ready(function() {
     $('.product-page__image__min__fix').css('height', $(window).height() - 50);
     $('.product-page__info').css('height', $(window).height() + 50);
@@ -639,41 +750,44 @@ $(document).ready(function() {
     
     $('#desctop_popup').css('height', $(window).height());
     
+    $('.product-page__image').trigger('scroll');
+    
 });
 
-$( ".product-page__image__min__fix a" ).click(function (e) {
-    e.preventDefault();
-    
-    var id  = $(this).attr('href');
 
+$('.product-page__image').height($(window).height() - $('.product-page__image').offset().top);
+$( ".product-page__image__min__fix a" ).click(function (e) {
+    //console.log('azazaz');
+    e.preventDefault();
+    //$('.product-page__image').scrollTop(0);
+    var id  = $(this).attr('href');
+    //console.log(id);
+    var top = 0;
+    $('.product-page__image div').each(function(i,elem) {
+        //console.log($(elem).attr('id'));
+        //console.log(i);
+        if('#'+$(elem).attr('id')===id){
+            top = $('#'+$(elem).attr('id')).height()*i;
+            
+        }
+    });
     //узнаем высоту от начала страницы до блока на который ссылается якорь
-    var top = $(id).offset().top - 75;
-    //console.log($(id).offset().top);
+    //var top = $(id).offset().top - $('.product-page__image').offset().top;
+    //var top = $(id).position().top;
+    console.log(top);
+    //console.log($(id).offset().top - $('.product-page__image').offset().top);
 
     //анимируем переход на расстояние - top за 1500 мс
-    $('body,html').animate({scrollTop: top}, 700);
+    //$('body,html').animate({scrollTop: top}, 700);
+    $('.product-page__image').animate({scrollTop: top}, 700);
     
 });
 
-$( ".popup a" ).click(function (e) {
-    e.preventDefault();
-    $('#desctop_popup').html('<img src="' + $(this).attr('href') + '">');
-    $('#desctop_popup').css('display', 'block');
-    $('body').css('overflow-y', 'hidden');
-    
-    
-    $( "#desctop_popup" ).scrollTop($("#desctop_popup img").height()/2 - $(window).height()/2);
-    //console.log(this);
-});
-    
-$( "#desctop_popup" ).click(function (e) {
-    $('#desctop_popup').css('display', 'none');
-    $('body').css('overflow-y', 'auto');
-});
-     
-     
-$( window ).scroll(function() {
-    //console.log(($(window).scrollTop()));
+$('.product-page__image').scroll(function() {
+    /*
+    //console.log($(document).height() - $('.box').offset().top);
+    //1170
+    //console.log($(document).height() - $(window).scrollTop() - $(window).height());
     if($( window ).scrollTop()<170){
         $('.product-page__info').css('top', 'auto');
         $('.product-page__image__min__fix').css('top', 'auto');
@@ -681,7 +795,7 @@ $( window ).scroll(function() {
         $('.product-page__image__min__fix').css('position', 'relative');
         $('.product-page__info').css('bottom', 'auto');
         $('.product-page__image__min__fix').css('bottom', 'auto');
-    }else if( ($( window ).scrollTop() >= 170) && (($(document).height() - $(window).scrollTop() - $(window).height()) > 1170) ){
+    }else if( ($( window ).scrollTop() >= 170) && (($(document).height() - $(window).scrollTop() - $(window).height()) > $(document).height() - $('.box').offset().top)){
         $('.product-page__info').css('top', '50px');
         $('.product-page__image__min__fix').css('top', '50px');
         $('.product-page__info').css('position', 'fixed');
@@ -694,15 +808,78 @@ $( window ).scroll(function() {
         
         $('.product-page__info').css('top', 'auto');
         $('.product-page__image__min__fix').css('top', 'auto');
-     }
+    }
+     */
+     
+     
+
+   $('.product-page__image .popup').each(function(i,elem) {
+
+        //($(elem).offset().top - $(window).scrollTop()> (50 - $('#product_top').height()/2)) 
+    if(($(elem).offset().top - $(window).scrollTop()> (50 - $('#product_top').height()/2))&&($(elem).offset().top - $(window).scrollTop() < (50 - $('#product_top').height()/2 + $('#product_top').height()))) {    
+        //$(elem).css('opacity', '1');
+        //console.log(this.id);
+        $("a[href=#"+ this.id +"]").css('opacity', '1');
+    }else{
+        $("a[href=#"+ this.id +"]").css('opacity', '0.6');
+        //$(elem).css('opacity', '0.5');
+    }
+
+   });
+   
 });
 
 
 
 
+$( ".popup a" ).click(function (e) {
+    e.preventDefault();
+    $('#desctop_popup').html('<img src="' + $(this).attr('href') + '">');
+    $('#desctop_popup').fadeTo("fast", 1);
+    $('#desctop_popup').css('display', 'block');
+    $('body').css('overflow-y', 'hidden');
+    
+    
+    $('#desctop_popup').waitForImages().done(function() {
+        $( "#desctop_popup" ).scrollTop($("#desctop_popup img").height()/2 - $(window).height()/2);
+    });
+});
+
+$( "#desctop_popup" ).click(function (e) {
+    $('#desctop_popup').fadeTo("fast", 0);
+    $('#desctop_popup').css('display', 'none');
+    $('body').css('overflow-y', 'auto');
+});
+
+}else{
+
+
+$( ".popup a" ).click(function (e) {
+    e.preventDefault();
+    $('#desctop_popup').html('<div style="background: url(' +$(this).attr('href')+ ')"><img class="plus" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMzJweCIgdmVyc2lvbj0iMS4xIiBoZWlnaHQ9IjMycHgiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNjQgNjQiPgogIDxnPgogICAgPHBhdGggZmlsbD0iIzAwMDAwMCIgZD0iTTI4Ljk0MSwzMS43ODZMMC42MTMsNjAuMTE0Yy0wLjc4NywwLjc4Ny0wLjc4NywyLjA2MiwwLDIuODQ5YzAuMzkzLDAuMzk0LDAuOTA5LDAuNTksMS40MjQsMC41OSAgIGMwLjUxNiwwLDEuMDMxLTAuMTk2LDEuNDI0LTAuNTlsMjguNTQxLTI4LjU0MWwyOC41NDEsMjguNTQxYzAuMzk0LDAuMzk0LDAuOTA5LDAuNTksMS40MjQsMC41OWMwLjUxNSwwLDEuMDMxLTAuMTk2LDEuNDI0LTAuNTkgICBjMC43ODctMC43ODcsMC43ODctMi4wNjIsMC0yLjg0OUwzNS4wNjQsMzEuNzg2TDYzLjQxLDMuNDM4YzAuNzg3LTAuNzg3LDAuNzg3LTIuMDYyLDAtMi44NDljLTAuNzg3LTAuNzg2LTIuMDYyLTAuNzg2LTIuODQ4LDAgICBMMzIuMDAzLDI5LjE1TDMuNDQxLDAuNTljLTAuNzg3LTAuNzg2LTIuMDYxLTAuNzg2LTIuODQ4LDBjLTAuNzg3LDAuNzg3LTAuNzg3LDIuMDYyLDAsMi44NDlMMjguOTQxLDMxLjc4NnoiLz4KICA8L2c+Cjwvc3ZnPgo=" />" /></div>');
+    $('#desctop_popup').fadeTo("fast", 1);
+    $('#desctop_popup').css('display', 'block');
+    $('body').css('overflow-y', 'hidden');
+    
+    $('#desctop_popup').waitForImages().done(function() {
+        $( "#desctop_popup" ).scrollTop($("#desctop_popup div").height()/2 - $(window).height()/2);
+        $( "#desctop_popup" ).scrollLeft($("#desctop_popup div").width()/2 - $(window).width()/2);
+    });
+
+});
+
+$( "#desctop_popup" ).click(function (e) {
+    $('#desctop_popup').fadeTo("fast", 0);
+    $('#desctop_popup').css('display', 'none');
+    $('body').css('overflow-y', 'auto');
+});
+
+}
+
+
 </script>
 
-<script type="text/javascript"><!--
+<script type="text/javascript">
 $(document).ready(function() {
    $('.colorbox').colorbox({
       overlayClose: true,
@@ -710,8 +887,20 @@ $(document).ready(function() {
 	  rel:'gallery',
       opacity: 0.5
 }); 
+
+
+$('[id^=input-option] input').on('change', function() {
+    if($(this).next().hasClass('preorder')){
+        $('.stockk').html('<?php echo $stock_true; ?>');
+    }else{
+        $('.stockk').html('<?php echo $stock_false; ?>');
+    }
 });
-//--></script>
+
+
+
+});
+</script>
 <script type="text/javascript">
         jQuery(function($) {
 			//Product thumbnails
@@ -901,7 +1090,7 @@ $('#button-cart').on('click', function() {
           $('#cart').load('/index.php?route=common/cart/info #cart > *'); //Added
         } else {
           var API2 = $("#cart-panel").data( "mmenu" );
-          API2.open();
+
         }
  				 
 			   

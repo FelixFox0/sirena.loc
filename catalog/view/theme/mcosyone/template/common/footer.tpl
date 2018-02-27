@@ -150,14 +150,14 @@ OpenCart is open source software and you are free to remove the powered by OpenC
 Please donate via PayPal to donate@opencart.com
 //-->
 </div>  <!-- .outer_container ends -->
-<script type="text/javascript" src="/catalog/view/theme/cosyone/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/catalog/view/theme/mcosyone/js/jquery.cookie.js"></script>
 
-<script type="text/javascript" src="/catalog/view/theme/cosyone/js/colorbox/jquery.colorbox-min.js"></script>
-<link href="/catalog/view/theme/cosyone/js/colorbox/custom_colorbox.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/catalog/view/theme/mcosyone/js/colorbox/jquery.colorbox-min.js"></script>
+<link href="/catalog/view/theme/mcosyone/js/colorbox/custom_colorbox.css" rel="stylesheet" type="text/css" />
 
-<script type="text/javascript" src="/catalog/view/theme/cosyone/js/quickview.js"></script>
+<script type="text/javascript" src="/catalog/view/theme/mcosyone/js/quickview.js"></script>
 <?php if($cosyone_use_retina) { ?>
-<script type="text/javascript" src="/catalog/view/theme/cosyone/js/retina.min.js"></script>
+<script type="text/javascript" src="/catalog/view/theme/mcosyone/js/retina.min.js"></script>
 <?php } ?>
 <?php echo $live_search; ?>
 <?php echo $cosyone_cookie; ?>
@@ -165,9 +165,5 @@ Please donate via PayPal to donate@opencart.com
 <script type="text/javascript" src="/catalog/view/javascript/main.js"></script>
 </section>
     </div>
-    <!-- BEGIN JIVOSITE CODE {literal} -->
-<script type='text/javascript'>
-(function(){ var widget_id = 'xUu2QBQm1M';var d=document;var w=window;function l(){
-var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);}if(d.readyState=='complete'){l();}else{if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>
-<!-- {/literal} END JIVOSITE CODE -->
+
 </body></html>

@@ -2,9 +2,12 @@
 <a class="shortcut_heading" href="<?php echo $cart; ?>" id="cart-total"><?php echo $text_items; ?></a>
  <nav id="cart-panel">
   <div class="content">
+      
     <?php if ($products || $vouchers) { ?>
+    <div class="cart-products__title"><?php echo $text_cart2; ?></div>
     <div class="mini-cart-info">
-      <table class="hidden-xs">
+        <?php if (false) { ?>
+      <table class="">
         <?php foreach ($products as $product) { ?>
         <tr>
           <td class="image border"><?php if ($product['thumb']) { ?>
@@ -32,17 +35,19 @@
           </tr>
         <?php } ?>
       </table>
+        <?php } ?>
       
       <?php if ($products || $vouchers) { ?>
-        <div class="cart-products visible-sm visible-xs">
-          <div class="cart-products__title"><?php echo $text_cart2; ?></div>
+      
+        <div class="cart-products">
+          
           <?php foreach ($products as $product) { ?>
             <div class="cart-products__item">
               <div class="cart-products__item-img">
                 <?php if ($product['thumb']) { ?>
                 <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" /></a>
                 <?php } ?>
-                <a title="<?php echo $button_remove; ?>" onclick="cart.remove('<?php echo $product['cart_id']; ?>');"><span class="remove"><?php echo $button_remove; ?></span></a>
+                
               </div>
               <div class="cart-products__item-info">
                 <div class="cart-products__item-name"><a href="#"><?php echo $product['name']; ?> x <?php echo $product['quantity']; ?></a></div>
@@ -55,6 +60,7 @@
                   <?php } ?>
                 </div>
                 <div class="cart-products__item-price"><?php echo $product['price']; ?></div>
+                <div class="cart-products__item-remove"><a title="<?php echo $button_remove; ?>" onclick="cart.remove('<?php echo $product['cart_id']; ?>');"><span class="remove"><?php echo $button_remove; ?></span></a></div>
               </div>
             </div>
           <?php } ?>
@@ -68,14 +74,14 @@
       <a class="" href="<?php echo $cart; ?>"><?php echo $text_cart; ?></a>
     </div>
     <div class="mini-cart-total">
-      <table>
+
         <?php foreach ($totals as $total) { ?>
-        <tr>
-          <td class="left titles"><?php echo $total['title']; ?>:</td>
-          <td class="left"><?php echo $total['text']; ?></td>
-        </tr>
+            <div>
+            <div><?php echo $total['title']; ?>:</div>
+            <div><?php echo $total['text']; ?></div>
+            </div>
         <?php } ?>
-      </table>
+
     </div>
     <div class="checkoutbuttons">
     <a class="" href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a>

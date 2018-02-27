@@ -17,25 +17,28 @@
 <meta name="keywords" content="<?php echo $keywords; ?>" />
 <?php } ?>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="yandex-verification" content="c9d9e694948fe333" />
+
 <script src="/catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
 <script src="/catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <link href="/catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
 <link rel="stylesheet" type="text/css" href="/catalog/view/theme/mcosyone/stylesheet/stylesheet.css" />
-<link rel="stylesheet" type="text/css" href="/catalog/view/theme/cosyone/stylesheet/perfect-scrollbar.css" />
-<link href="/catalog/view/theme/default/css/account.css" rel="stylesheet">
-<link href="/catalog/view/theme/default/css/main-mobile.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/catalog/view/theme/mcosyone/stylesheet/perfect-scrollbar.css" />
+<!--<link href="/catalog/view/theme/default/css/account.css" rel="stylesheet">-->
+<link href="/catalog/view/theme/mdefault/css/main.css" rel="stylesheet">
 
 
-<script type="text/javascript" src="/catalog/view/theme/cosyone/js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="/catalog/view/theme/cosyone/js/perfect-scrollbar.jquery.min.js"></script>
-<script type="text/javascript" src="/catalog/view/theme/cosyone/js/cosyone_common.js"></script>
+<script type="text/javascript" src="/catalog/view/theme/mcosyone/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="/catalog/view/theme/mcosyone/js/perfect-scrollbar.jquery.min.js"></script>
+<script type="text/javascript" src="/catalog/view/theme/mcosyone/js/cosyone_common.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/catalog/view/theme/mcosyone/stylesheet/style.css" />
+
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <?php foreach ($scripts as $script) { ?>
 <script type="text/javascript" src="<?php echo $script; ?>"></script>
 <?php } ?>
-
+<link rel="stylesheet" href="https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?u8vidh">
 
 <?php foreach ($analytics as $analytic) { ?>
 <?php echo $analytic; ?>
@@ -45,32 +48,27 @@
   jQuery(document).ready(function($) {
     setTimeout(function(){
       $(".loader").fadeOut();
-    }, 1200);
+    }, 1500);
 
   });
 </script>
 
-<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/41e130d1a7327afff797fbea3/d9de2107ba4b474987bf74e05.js");</script>
 </head>
 <body class="<?php echo $class; ?>">
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMR8MLS"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 <div class="loader"> 
-  <img src="/image/cropped-fidelitti_icon.gif" alt="cropped-fidelitti_icon">
+  <img src="/image/cropped-sirena_icon.gif" alt="cropped-fidelitti_icon">
 </div>
 
-<nav id="my-menu" class="visible-xs visible-sm"> 
+<nav id="my-menu"> 
 <ul class="">
 <!--   <li><a href="/index.php?route=product/search" class="mmobile-search"><?php echo $text_search2; ?> <i class=""><img src="/image/icon_search.png" alt=""></i></a></li> -->
        <?php if ($categories) { ?>
        <?php foreach ($categories as $category_1) { ?>
         <?php if ($category_1['category_1_id'] == $category_1_id) { ?>
-    <li class="col<?php echo $category_1['column']; ?>"><span href="<?php echo $category_1['href']; ?>" class="mm-fullsubopen"><?php echo $category_1['name']; ?></span>
+    <li class="col<?php echo $category_1['column']; ?>"><span href="<?php echo $category_1['href']; ?>" class="mmobile-wicon mm-fullsubopen"><?php echo $category_1['name']; ?><i class="fa fa-angle-right"></i></span>
          <?php } else { ?>
-         <li class="col<?php echo $category_1['column']; ?>"><span href="<?php echo $category_1['href']; ?>" class="mm-fullsubopen"><?php echo $category_1['name']; ?></span>
+         <li class="col<?php echo $category_1['column']; ?>"><span href="<?php echo $category_1['href']; ?>" class="mmobile-wicon mm-fullsubopen"><?php echo $category_1['name']; ?><i class="fa fa-angle-right"></i></span>
          <?php } ?>
           <?php if ($category_1['children']) { ?>
 
@@ -78,15 +76,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <ul>
           <?php if ($category_1['thumb']) { ?>
 
-          <li class="mmobile-image"><p><?php echo $category_1['name']; ?></p><img src="<?php echo $category_1['thumb']; ?>" alt=""></li>
+          <!--<li class="mmobile-image"><p><?php echo $category_1['name']; ?></p><img src="<?php echo $category_1['thumb']; ?>" alt=""></li>-->
           <?php } ?>
-
+<li><span class="back_btn"><i class="fa fa-angle-left"> </i><?php echo $text_back; ?></span></li>
           <?php foreach ($category_1['children'] as $category_2) { ?>
           <li class="column level2">
           <?php if (!$category_2['children']) { ?>
             <a href="<?php echo $category_2['href']; ?>"><?php echo $category_2['name']; ?></a>
           <?php } else { ?>
-            <span href="<?php echo $category_2['href']; ?>"><?php echo $category_2['name']; ?></span>
+            <span class="mmobile-wicon" href="<?php echo $category_2['href']; ?>"><?php echo $category_2['name']; ?><i class="fa fa-angle-right"></i></span>
           <?php } ?>
 
             <?php if($cosyone_menu_mega_second_thumb == 'enabled' && $category_2['thumb']) { ?>
@@ -95,8 +93,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <?php if ($category_2['children']) { ?>
               <ul>
               <?php if ($category_2['thumb']) { ?>
-                <li class="mmobile-image"><p><?php echo $category_2['name']; ?></p><img src="<?php echo $category_2['thumb']; ?>" alt=""></li>
+              
+                <!--<li class="mmobile-image"><p><?php echo $category_2['name']; ?></p><img src="<?php echo $category_2['thumb']; ?>" alt=""></li>-->
                 <?php } ?>
+                <li><span class="back_btn"><i class="fa fa-angle-left"> </i><?php echo $text_back; ?></span></li>
                 <li><a href="<?php echo $category_2['href']; ?>"><?php echo $text_see_all; ?></a></li>
                <?php foreach ($category_2['children'] as $category_3) { ?>
                <li><a href="<?php echo $category_3['href']; ?>"><?php echo $category_3['name']; ?></a></li>
@@ -118,8 +118,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <?php } ?>
         <?php if($cosyone_custom_menu_title1){ ?>
           <li class="">
-            <span href="<?php echo $cosyone_custom_menu_url1 ?>" class=""><?php echo $cosyone_custom_menu_title1; ?></span>
+            <span href="<?php echo $cosyone_custom_menu_url1 ?>" class="mmobile-wicon"><?php echo $cosyone_custom_menu_title1; ?><i class="fa fa-angle-right"></i></span>
                 <ul>
+                  <li><span class="back_btn"><i class="fa fa-angle-left"> </i><?php echo $text_back; ?></span></li>
                   <li class=""><a href="<?php echo $blog ?>"><?php echo $text_blog ?></a></li>
                   <li class=""><a href="https://www.instagram.com/fidelitti/" target="_blank">#Fidelittigirls</a></li>
                 </ul>
@@ -128,36 +129,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <?php } ?>
         <?php if($cosyone_custom_menu_title2){ ?>      
                 <li class="">
-                    <span href="<?php echo $cosyone_custom_menu_url2 ?>"  class=""><?php echo $cosyone_custom_menu_title2; ?></span>
-                    
-                
-                
-                <?php if ($informations) { ?>
-                    
+                    <span class="mmobile-wicon" href="<?php echo $cosyone_custom_menu_url2 ?>"  class=""><?php echo $cosyone_custom_menu_title2; ?><i class="fa fa-angle-right"></i></span></i>       
                 
                 <ul>
+                  <li><span class="back_btn"><i class="fa fa-angle-left"> </i><?php echo $text_back; ?></span></li>
                   <li class=""><a href="<?php echo $my_company; ?>"><?php echo $text_about; ?></a></li>
                   <li class=""><a href="<?php echo $contact; ?>"><?php echo $text_sotr; ?></a></li>
                   <li class=""><a href="<?php echo $our_production; ?>"><?php echo $text_our_prod; ?></a></li>
                   <li class=""><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
                 </ul>
 
-                 <?php } ?>
+                 
                 </li>
                 
         <?php } ?>
                <li><a class="mmobile-wicon" href="<?php echo $our_stores; ?>" class=""><?php echo $informations[9]['title']; ?><i class="fa fa-map-marker" aria-hidden="true"></i></a></li>
                 <li><a class="mmobile-wicon" href="<?php echo $customer_service; ?>"><?php echo $text_customer; ?> <i class=""><img src="/image/menu_icon_phone2.png" alt=""></i></a></li>
-                <li><a class="mmobile-wicon" href="<?php echo $login; ?>"><?php echo $text_login; ?> <i class="icon-maaan"></i></li>
-                  <!--<li><a class="mmobile-lang text-center open-popup" href=".popup-countries"><i class="fa fa-globe" aria-hidden="true"></i><?php echo $shippig; ?> <span> <?php echo ' ' . strtoupper($country_s); ?></span></a></li>
-                  <li><a class="mmobile-lang text-center open-popup" href=".top_header_drop_down"><i class="fa fa-comments" aria-hidden="true">
-                </i><?php foreach ($llanguages as $llanguage) { ?>
-                    <?php if ($llanguage['code'] == $code) { ?>
-                        <?php echo $llanguage['name']; ?>
-                    <?php } ?>
-                <?php } ?></a></li> -->
+                <li><a class="mmobile-wicon" href="<?php echo $login; ?>"><?php echo $text_login; ?> <i class="icon-maaan"></i></a></li>
+
                 
-                <li><a href="tel:<?php echo $text_phone; ?>" class="mmobile-phone"><?php echo $text_phone; ?><span></span></a></li>
+                <li><a href="tel:<?php echo $text_phone; ?>" class="mmobile-phone"><?php echo $text_phone; ?></a></li>
                 </ul>
       </nav>
 
@@ -166,10 +157,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <div class="outer_container <?php echo $cosyone_default_product_style; ?> <?php if($cosyone_use_custom){ echo $cosyone_container_layout; } ?> <?php echo $cosyone_use_breadcrumb; ?>">
-<div class="header_wrapper 
-<?php echo $cosyone_menu_sticky; ?> 
-<?php echo $cosyone_menu_border; ?> 
-<?php echo $cosyone_header_style; ?>">
+<div class="header_wrapper">
+<?php //echo $cosyone_menu_sticky; ?> 
+<?php //echo $cosyone_menu_border; ?> 
+<?php //echo $cosyone_header_style; ?>
 
 
 <div class="popup-countries mfp-hide">
@@ -187,22 +178,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <header class="header">
-  <div class="container">
-    <div class="header__top">
-      <div class="header__promo">
-        Бесплатно звонок по Украине:  0 800 210 385
-      </div>
-    </div>
-  </div>
-</header>
+  
 
-<div class="container header-wrap fixed">
+<div class="logomob">
+  <a href="<?php echo $home; ?>">
+  <img src="/image/logo.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" /></a>
+</div>
+<div class="container header_main_container">
 <div class="header_main">
   <div class="header_right " id="my-header"> 
   <a href="#" id="mob-menu-btn" class="trigger-menu"><i class="fa fa-bars" aria-hidden="true"></i></a>
   <div class="top-icons-right">
       <div class="cart-mobile">
-        <a href="/index.php?route=product/search" class="mmobile-search"><?php echo $text_search2; ?> <i class=""><img src="/image/icon_search.png" alt=""></i></a>
+        <a href="/index.php?route=product/search" class="mmobile-search"><?php //echo $text_search2; ?> <i class=""><img src="/image/icon_search.png" alt=""></i></a>
       </div>
       <div class="cart-mobile">
         <?php if ($cosyone_header_cart) { echo $cart; } ?>
@@ -211,7 +199,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <?php if ($logo) { ?>
   <div class="logo">
   <a href="<?php echo $home; ?>">
-  <img src="/image/logo.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" /></a>
+  <img src="/image/logo2.png" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" /></a>
   </div>
   <?php } ?>
  
@@ -437,9 +425,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="clearfix"></div>
 
 
-</div> <!-- header_wrapper ends -->
+
 </div> <!-- inner conainer ends -->
 
+
+   <div class="container">
+    <div class="header__top">
+      <div class="header__promo">
+        Бесплатно звонок по Украине:  0 800 210 385
+      </div>
+    </div>
+  </div>
+</header>
 <?php 
 if($countries){
     echo $countries; 
@@ -507,3 +504,111 @@ if($countries){
 
 <div class="breadcrumb_wrapper"></div>
 <div id="notification" class="container"></div>
+
+<script>
+
+    $(document).delegate('#mob-menu-btn', 'click', function(e) {
+        e.preventDefault();
+        //$('#my-menu').show();
+        if($(window).scrollTop()>$('.logomob').height()){
+            $('#my-menu').css('top', $('.header_main').height()+2);
+        }else{
+            //$('#my-menu').css('top', $('.header_main').offset().top - $(window).scrollTop() + $('.header_main').height()+2);
+            $('#my-menu').css('top', 106-$(window).scrollTop());
+        }
+        $('#my-menu').toggle("slide");
+        //$('#my-menu').show();
+        if($('body').css('overflow')=='hidden'){
+            $('body').css('overflow', 'auto');    
+        }else{
+            $('body').css('overflow', 'hidden');    
+        }
+    });
+    
+    $(document).delegate(window, 'scroll', function() {
+        //console.log($(document).scrollTop());
+        //console.log($(window).scrollTop());
+        //console.log($('.header_main').position().top);
+        //console.log($('.header_main').offset().top-$(window).scrollTop());
+        $('#my-menu').css('top', $('.header_main').height()+2);
+        if($(window).scrollTop()>$('.logomob').height()){
+           $('.header_main').css('position', 'fixed');
+           $('.header_main').css('top', '0px');
+           //$('.logomob').css('margin-bottom', $('.header_main').height());
+           $('#my-menu').css('top', $('.header_main').height()+2);
+           $('.header_main').css('width', '100%');
+           $('.header_main .logo').fadeIn("slow");
+           $('#my-menu').css('height', 'calc(100% - 46px)');
+           
+        }else{
+            $('.header_main').css('position', 'relative');
+            //$('.logomob').css('margin-bottom', 0);
+            $('#my-menu').css('top', 106-$(window).scrollTop());
+            $('.header_main').css('width', 'calc(100% + 30px)');
+            $('.header_main .logo').fadeOut();
+            $('#my-menu').css('height', 'calc(100% - 106px)');
+        }
+    });
+    $(document).ready(function() {
+        $('#my-menu li').click(function() {
+            /*$('#my-menu li .back_btn').click(function() {
+               console.log(this);
+            })*/
+           if($('>span', this).is('.back_btn')){
+               //console.log(this);
+                $(this).parent().parent().children('ul').toggle("slide", function() {
+                    //console.log(this);
+                    //alert();
+                    $(this).parent().children('span').attr('style','display:flex !important');
+                    $(this).parent().parent().children('li').show();
+                });
+                /*console.log($(this).parent().parent().children('span'));
+                console.log($(this).parent().parent().parent().children('span'));*/
+            }else{
+                //console.log(this);
+                $('#my-menu ul li').hide();
+                //$('#my-menu ul li').hide("slide", { direction: "left" }, 500);
+                //$(this).find('ul').toggle("slide");
+                //$('>span', this).css('display', 'none !important');///////////////////////////////////
+                $('>span', this).attr('style','display:none !important');
+
+                $(this).show();
+
+                $(this).find('ul>li').show();
+                $(this).parent().parent().show();
+                //$('>ul', this).show();
+                $('>ul', this).toggle("slide");
+
+
+                if($('>a', this).attr('href')){
+                    //console.log($('>a', this).attr('href'));
+                    location = $('>a', this).attr('href');
+                }  
+            }
+            return false;
+        })
+        $('#cart-panel').width($(window).width());
+        //console.log($('#cart-panel'));
+    })
+    
+    $(window).resize(function() {
+        $('#cart-panel').width($(window).width());
+    });
+    
+    $(document).delegate('#cart-total', 'click', function(e) {
+        //console.log(e);
+        e.preventDefault();
+        //$('#mob-menu-btn').trigger('click');
+        //console.log($('#cart .content'));
+        //console.log($('#cart .content').attr('style'));
+       
+        if($('#cart .content').attr('style')=="display: block;"){
+            //console.log($('#cart .content').attr('style'));
+            $('#cart .content').fadeOut('slide');
+        }else{
+            //console.log($('#cart .content').attr('style'));
+            $('#cart .content').fadeIn();
+        }
+        //return false;
+    });
+</script>

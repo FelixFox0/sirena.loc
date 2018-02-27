@@ -153,7 +153,7 @@ $(document).ready(function($) {
      	}); 
 
 
-    window.API2 = $("#cart-panel").data( "mmenu" );
+   // window.API2 = $("#cart-panel").data( "mmenu" );
 
 
 
@@ -169,7 +169,7 @@ $(document).ready(function($) {
 
       $(".cart-mobile").click(function(e) {
       	e.preventDefault();
-         window.API2.open();
+        // window.API2.open();
       });
 	}
 
@@ -191,8 +191,8 @@ $(document).ready(function($) {
 	  	callbacks: {
     		open: function() {
     			if($(window).innerWidth() < 1100) {
-    				window.API2.close();
-    				API.close();
+//    				window.API2.close();
+//    				API.close();
     			}
     		}
     	},

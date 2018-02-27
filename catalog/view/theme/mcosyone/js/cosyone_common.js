@@ -275,7 +275,7 @@ var cart = {
 						  }
 						});
 					} else {
-						window.API2.open(); 
+						
 					}
 					
 				}

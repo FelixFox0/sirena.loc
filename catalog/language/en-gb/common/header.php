@@ -48,3 +48,4 @@ $_['text2_en'] = 'Worldwide shipping';
 $_['text_search2'] = 'Product search by catalog';
 $_['text_see_all'] = 'View all';
 $_['text_popup_btn'] = 'to shop';
+$_['text_back'] = 'Back';

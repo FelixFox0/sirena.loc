@@ -880,8 +880,8 @@ $('#button-cart').on('click', function() {
 
           $('#cart').load('/index.php?route=common/cart/info #cart > *'); //Added
         } else {
-          var API2 = $("#cart-panel").data( "mmenu" );
-          API2.open();
+         // var API2 = $("#cart-panel").data( "mmenu" );
+          //API2.open();
         }
  				 
 			   

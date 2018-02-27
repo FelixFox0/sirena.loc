@@ -58,8 +58,8 @@ location = '<?php echo $redirect; ?>';
 <?php } ?>
 <?php if ($auto_submit) { ?>
 <script type="text/javascript"><!--
-$('.payment form').submit();
-$('.payment input[type=\'button\']').trigger('click');
+//$('.payment form').submit();
+//$('.payment input[type=\'button\']').trigger('click');
 $('.payment #button-confirm').trigger('click');
 //--></script> 
 <?php } ?>

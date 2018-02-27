@@ -95,21 +95,17 @@
     display: none;
 }
 
-input ~ span {
+.category-main input ~ span {
     display: none;
 }
-input:checked ~ span {
+.category-main input:checked ~ span {
     display: inline;
 }
-input[type='checkbox']{
+.category-main input[type='checkbox']{
     display: none;
 }
 
-input[type='checkbox']{
-    display: none;
-}
-
-label {
+.category-main label {
     min-width: 165px;
     text-transform: uppercase;
     cursor: pointer;
@@ -121,7 +117,7 @@ label {
     margin: 0px;
 }
 
-p.color{
+.category-main p.color{
     height: 15px;
     width: 27px;
     float: left;

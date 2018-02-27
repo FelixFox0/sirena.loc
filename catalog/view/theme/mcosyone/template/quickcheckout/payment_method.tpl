@@ -26,8 +26,12 @@ foreach ($payment_methods as $payment_method) {
       <?php } ?></td>
     <td valign="middle">
     <label style="font-size: 16px;" for="<?php echo $payment_method['code']; ?>">
-	
-	<?php echo $payment_method['title']; ?><?php if (($payment_logo) && file_exists(DIR_APPLICATION . 'view/theme/default/image/payment/' . $payment_method['code'] . '.png')) { ?><img style="vertical-align:middle;display:inline-block" src="<?php echo HTTPS_SERVER . 'catalog/view/theme/default/image/payment/' . $payment_method['code'] . '.png'; ?>" alt="<?php echo $payment_method['title']; ?>" /><?php } ?></label></td>
+
+	<?php echo $payment_method['title']; ?>
+      <?php if (($payment_logo) && file_exists(DIR_APPLICATION . 'view/theme/default/image/payment/' . $payment_method['code'] . '.png')) { ?>
+      <img style="vertical-align:middle;display:inline-block" src="<?php echo HTTPS_SERVER . 'catalog/view/theme/default/image/payment/' . $payment_method['code'] . '.png'; ?>" alt="<?php echo $payment_method['title']; ?>" /><?php } ?>
+    </label></td>
+
 	
   </tr>
   <?php } ?>
@@ -68,8 +72,8 @@ foreach ($payment_methods as $payment_method) {
 <?php } else { ?>
 <textarea name="survey" class="hide"><?php echo $survey; ?></textarea>
 <?php } ?>
-<span class="contrast_font input_heading"><?php echo $text_comments; ?></span>
-<textarea name="comment" rows="5" class="form-control"><?php echo $comment; ?></textarea>
+
+<textarea name="comment" rows="5" class="form-control" placeholder="<?php echo $text_comments; ?>"><?php echo $comment; ?></textarea>
 
 <script type="text/javascript"><!--
 $('#payment-method input[name=\'payment_method\'], #payment-method select[name=\'payment_method\']').on('change', function() {

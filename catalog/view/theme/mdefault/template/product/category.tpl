@@ -14,8 +14,9 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
+      <?php if (false) { ?>
+      <?php //if ($thumb || $description) { ?>
       <h2><?php echo $heading_title; ?></h2>
-      <?php if ($thumb || $description) { ?>
       <div class="row">
         <?php if ($thumb) { ?>
         <div class="col-sm-2"><img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" title="<?php echo $heading_title; ?>" class="img-thumbnail" /></div>
@@ -26,7 +27,8 @@
       </div>
       <hr>
       <?php } ?>
-      <?php if ($categories) { ?>
+      <?php if (false) { ?>
+      <?php //if ($categories) { ?>
       <h3><?php echo $text_refine; ?></h3>
       <?php if (count($categories) <= 5) { ?>
       <div class="row">
@@ -53,53 +55,74 @@
       <?php } ?>
       <?php } ?>
       <?php if ($products) { ?>
-      <p><a href="<?php echo $compare; ?>" id="compare-total"><?php echo $text_compare; ?></a></p>
+      <!--<p><a href="<?php echo $compare; ?>" id="compare-total"><?php echo $text_compare; ?></a></p>-->
       <div class="row">
-        <div class="col-md-4">
+        <!--<div class="col-md-4">
           <div class="btn-group hidden-xs">
             <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="<?php echo $button_list; ?>"><i class="fa fa-th-list"></i></button>
             <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="<?php echo $button_grid; ?>"><i class="fa fa-th"></i></button>
           </div>
-        </div>
-        <div class="col-md-2 text-right">
-          <label class="control-label" for="input-sort"><?php echo $text_sort; ?></label>
-        </div>
-        <div class="col-md-3 text-right">
-          <select id="input-sort" class="form-control" onchange="location = this.value;">
-            <?php foreach ($sorts as $sorts) { ?>
-            <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
-            <option value="<?php echo $sorts['href']; ?>" selected="selected"><?php echo $sorts['text']; ?></option>
+        </div>-->
+
+        <div class="category_top">
+            <div class="col-xs-6">
+                <a href=".filter" class="js-filter filter_top" data-target="filter"><?php echo $fiter_title; ?> <i class="fa fa-angle-down"></i></a>
+            </div>
+            <div class="filter">
+                <?php foreach ($filter_groups as $filter_group) { ?>
+                <div>
+                <p><a href="<?php echo $filter_group['filter_group_id']; ?>"><?php echo $filter_group['name']; ?></a></p>
+                <?php foreach ($filter_group['filter'] as $filter) { ?>
+
+                <label>
+                  <?php if (in_array($filter['filter_id'], $filter_category)) { ?>
+                  <?php if($filter['color']){ ?>
+                    <p class="color" style="background-color: #<?php echo $filter['color']; ?>"></p> 
+                  <?php } ?>
+                  <input type="checkbox" name="filter[]" value="<?php echo $filter['filter_id']; ?>" checked="checked" />
+                  <?php echo $filter['name']; ?>
+                  <?php } else { ?>
+                  <?php if($filter['color']){ ?>
+                    <p class="color" style="background-color: #<?php echo $filter['color']; ?>"></p> 
+                  <?php } ?>
+                  <input type="checkbox" name="filter[]" value="<?php echo $filter['filter_id']; ?>" />
+                  <?php echo $filter['name']; ?>
+                  <?php } ?>
+                   <i class="fa fa-check"></i>
+                </label>
+              
+              <?php } ?>
+                </div>
+                <?php } ?>
+                <div class="btn_searce">
+                    <input type="button" id="button-filter" class="btn btn-primary" value="<?php echo $button_filter; ?>" >
+                </div>
+            </div>   
+            
+        <div class="col-xs-6"> 
+        <a href=".sort" class="js-filter sort_top" data-target="sort"><?php echo $text_sort; ?> <i class="fa fa-angle-down"></i></a>
+        </div> 
+        <div class="sort">
+            <?php foreach ($sorts as $sortt) { ?>
+            <?php if ($sortt['value'] == $sort . '-' . $order) { ?>
+            <p><a href="<?php echo $sortt['href']; ?>" class="_active"><?php echo $sortt['text']; ?></a></p>
             <?php } else { ?>
-            <option value="<?php echo $sorts['href']; ?>"><?php echo $sorts['text']; ?></option>
+            <p><a href="<?php echo $sortt['href']; ?>"><?php echo $sortt['text']; ?></a></p>
             <?php } ?>
             <?php } ?>
-          </select>
         </div>
-        <div class="col-md-1 text-right">
-          <label class="control-label" for="input-limit"><?php echo $text_limit; ?></label>
-        </div>
-        <div class="col-md-2 text-right">
-          <select id="input-limit" class="form-control" onchange="location = this.value;">
-            <?php foreach ($limits as $limits) { ?>
-            <?php if ($limits['value'] == $limit) { ?>
-            <option value="<?php echo $limits['href']; ?>" selected="selected"><?php echo $limits['text']; ?></option>
-            <?php } else { ?>
-            <option value="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></option>
-            <?php } ?>
-            <?php } ?>
-          </select>
         </div>
       </div>
       <br />
       <div class="row">
         <?php foreach ($products as $product) { ?>
-        <div class="product-layout product-list col-xs-12">
+        <div class="product-layout product-list col-xs-6">
           <div class="product-thumb">
             <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
             <div>
               <div class="caption">
                 <h4><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
-                <p><?php echo $product['description']; ?></p>
+                
                 <?php if ($product['rating']) { ?>
                 <div class="rating">
                   <?php for ($i = 1; $i <= 5; $i++) { ?>
@@ -125,9 +148,9 @@
                 <?php } ?>
               </div>
               <div class="button-group">
-                <button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>
-                <button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>
-                <button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>
+                <p onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><?php echo $button_cart; ?></p>
+                <!--<button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>
+                <button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>-->
               </div>
             </div>
           </div>
@@ -149,3 +172,69 @@
     <?php echo $column_right; ?></div>
 </div>
 <?php echo $footer; ?>
+<script type="text/javascript">
+$('#button-filter').on('click', function() {
+	filter = [];
+
+	$('.filter input[name^=\'filter\']:checked').each(function(element) {
+		filter.push(this.value);
+	});
+
+	location = '<?php echo $action; ?>&filter=' + filter.join(',');
+});
+
+
+$('a.js-filter').click(function(e){
+    e.preventDefault();
+    var selector;
+    if ( $($(this).attr('href')).css('display') == 'none'){
+        selector = ($(this).attr('href'));
+    }
+    $('.sort').hide();
+    $('.filter').hide();
+    if(selector){
+        $(selector).show();
+        if(selector=='.sort'){
+            $('.filter-group').hide();
+            //$('.filter_now').show();
+        }
+    }else{
+        $('.filter-group').hide();
+        //$('.filter_now').show();
+    }
+
+
+        //$($(this).attr('href')+':hidden').show();
+        //$($(this).attr('href')+':visible').hide();
+
+});
+
+    $('.filter a').click(function(e){
+        e.preventDefault();
+        $('.filter-group').hide();
+        $('#filter-group'+$(this).attr('href')).show();
+    });
+    $('input').click(function(e){
+        //if($(this+':checked')){
+
+        //}
+        //e.preventDefault();
+        if($(this).is(':checked')){
+            //console.log(this);
+            //console.log($('input[value='+$(this).val()+']').val());
+            $($('input[value='+$(this).val()+']')).prop("checked", true);
+        }else{
+            $($('input[value='+$(this).val()+']')).prop("checked", false);
+        }
+        $('#button-filter').show();
+        
+        //console.log($(this.id+':checked').val()); 
+    });
+    $('.filter div p a').click(function(e){
+        if($(this).parent().parent().children('label').css('display')=='none'){
+            $(this).parent().parent().children('label').fadeIn('slow');
+        }else{
+            $(this).parent().parent().children('label').fadeOut('fast');
+        }
+    });
+</script>

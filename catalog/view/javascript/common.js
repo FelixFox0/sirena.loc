@@ -159,8 +159,6 @@ var cart = {
 					}, 100);
 
 					$('#cart > ul').load('/index.php?route=common/cart/info ul li');
-				
-					window.API2.open();
 				}
 			},
 			error: function(xhr, ajaxOptions, thrownError) {
