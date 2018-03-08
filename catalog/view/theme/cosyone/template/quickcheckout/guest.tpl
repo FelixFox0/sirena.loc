@@ -7,7 +7,7 @@
 	  <select name="country_id" class="form-control" id="input-payment-country">
 	  <?php foreach ($countries as $country) { ?>
 		<?php if ($country['country_id'] == $country_id) { ?>
-		<option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $entry_country; ?></option>
+		<option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
 		<?php } else { ?>
 		<option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
 		<?php } ?>

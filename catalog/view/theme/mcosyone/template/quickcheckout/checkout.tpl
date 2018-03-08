@@ -20,7 +20,9 @@
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
     <div id="social_login_content_holder"></div>
+    <div class="shoppingBagTitleWrapper">
       <h1><?php echo $text_cart; ?></h1>
+    </div>
 	  <!-- Start -->
 	  <div id="warning-messages"></div>
 	  <div id="success-messages"></div>
@@ -58,16 +60,18 @@
 		<?php if ($cart_module) { ?>
 		<div id="cart1">
 		  <div class="quickcheckout-content" style="border:none; padding: 0px;"></div>
-                  <div class="check-more-btn"><a href="#"><?php echo $more_buy_btn; ?></a></div>
+                  <!--<div class="check-more-btn"><a href="#"><?php echo $more_buy_btn; ?></a></div>-->
 		</div>
 		<?php } ?>
-                <h1><?php echo $heading_title; ?></h1>
-                <div class="row">
+                <div class="shoppingBagTitleWrapper">
+                    <h1><?php echo $heading_title; ?></h1>
+                </div>
+                <div class="">
                     
                 <div class="col-md-5 col-xs-12">
 		<?php if (!$logged) { ?>
 		<div id="payment-address">
-		  <div class="quickcheckout-heading box-heading"><span><?php echo $text_checkout_account; ?></span></div>
+		  <!--<div class="quickcheckout-heading box-heading"><span><?php echo $text_checkout_account; ?></span></div>-->
 		  <div class="quickcheckout-content"></div>
 		</div>
 		<?php } else { ?>

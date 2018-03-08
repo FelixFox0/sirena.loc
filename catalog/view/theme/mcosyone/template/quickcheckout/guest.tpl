@@ -3,11 +3,11 @@
   <?php if ($field == 'country') { ?>
     <?php if (!empty(${'field_' . $field}['display'])) { ?>
 	<div class="<?php echo !empty(${'field_' . $field}['required']) ? ' required' : ''; ?>">
-	  <!--<label class="control-label"><?php echo $entry_country; ?></label>-->
+	  <label class="control-label"><?php echo $entry_country; ?></label>
 	  <select name="country_id" class="form-control" id="input-payment-country">
 	  <?php foreach ($countries as $country) { ?>
 		<?php if ($country['country_id'] == $country_id) { ?>
-		<option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $entry_country; ?></option>
+		<option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
 		<?php } else { ?>
 		<option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
 		<?php } ?>
@@ -28,7 +28,7 @@
   <?php } elseif ($field == 'zone') { ?>
     <?php if (!empty(${'field_' . $field}['display'])) { ?>
 	<div class="<?php echo !empty(${'field_' . $field}['required']) ? ' required' : ''; ?>">
-	  <!--<label class="control-label"><?php echo $entry_zone; ?></label>-->
+	  <label class="control-label"><?php echo $entry_zone; ?></label>
 
 	  <select name="zone_id" class="form-control" id="input-payment-zone"><?php echo $entry_zone; ?></select>
 	</div>
@@ -55,7 +55,8 @@
   <?php } else { ?>
 	<?php if (!empty(${'field_' . $field}['display'])) { ?>
 	<div<?php echo $field == 'postcode' ? ' id="payment-postcode-required"' : ''; ?> class="<?php echo !empty(${'field_' . $field}['required']) ? ' required' : ''; ?>">
-	  <input type="text" name="<?php echo $field; ?>" value="<?php echo ${$field} ? ${$field} : ${'field_' . $field}['default']; ?>" class="form-control"  id="input-payment-<?php echo str_replace('_', '-', $field); ?>" placeholder="<?php echo ${'entry_' . $field}; ?>"/>
+            <label class="control-label"><?php echo ${'entry_' . $field}; ?></label>
+	  <input type="text" name="<?php echo $field; ?>" value="<?php echo ${$field} ? ${$field} : ${'field_' . $field}['default']; ?>" class="form-control"  id="input-payment-<?php echo str_replace('_', '-', $field); ?>" placeholder="<?php //echo ${'entry_' . $field}; ?>"/>
 	</div>
 	<?php } else { ?>
 	<input type="text" name="<?php echo $field; ?>" value="<?php echo ${$field} ? ${$field} : ${'field_' . $field}['default']; ?>" class="hide" />

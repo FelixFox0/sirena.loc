@@ -10682,7 +10682,7 @@ a:hover {
     text-align: center;
     margin: 5px auto 55px;
 }
-.quickcheckout-checkout h1:before {
+/*.quickcheckout-checkout h1:before {
     content: "";
     height: 1px;
     width: calc(100% - 745px);
@@ -10699,7 +10699,7 @@ a:hover {
     position: absolute;
     bottom: 7px;
     right: 0;
-}
+}*/
 .quickcheckout-checkout #terms .quickcheckout-content {
     padding: 0;
 }
@@ -10868,7 +10868,7 @@ a:hover {
     -moz-appearance: none;
     appearance: none;
     max-width: 470px;
-    margin-bottom: 30px;
+    /*margin-bottom: 30px;*/
     color: #212121;
     font-family: Gil-l;
     font-size: 16px;
@@ -11465,8 +11465,8 @@ a:hover {
 }
 .sq_icon.button-remove {
     font-family: Gil-l;
-    font-size: 16px;
-    text-transform: none;
+    /*font-size: 16px;*/
+    /*text-transform: none;*/
     color: #212121;
     width: auto;
     height: auto;
@@ -14283,7 +14283,7 @@ a.scroll_top {
     background-color: #fff !important;
 }
 .cart-tot {
-    border-top: 1px solid #dedede;
+    /*border-top: 1px solid #dedede;*/
     padding-top: 5px;
 }
 

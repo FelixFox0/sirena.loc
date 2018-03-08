@@ -4,14 +4,7 @@
     <button type="button" class="close" data-dismiss="alert">&times;</button>
   </div>
   <?php } ?>
-  <div class="cart-tot visible-xs visible-sm">
-    <?php foreach ($totals as $total) { ?>
-          <div>
-            <div><?php echo $total['title']; ?>:</div>
-            <div><?php echo $total['text']; ?></div>
-          </div>
-    <?php } ?>
-  </div>
+  
 <div class="quickcheckout-cart-row">
     <div class="cart-scroll">
         <?php if (false) { ?>
@@ -110,17 +103,20 @@
         
         <?php if ($products || $vouchers) { ?>
         <?php foreach ($products as $product) { ?>
+        <div class="cart_product_section">
         <div class='row quickcheckout-cart cart_product_row'>           
         
-        <div class="col-md-3">
+        <div class="col-md-6 col-xs-6">
         <?php if ($product['thumb']) { ?>
             <a href="<?php echo $product['href']; ?>">
-                <div class="cart_image" style="background: url('<?php echo $product['thumb']; ?>');"></div>
+                <div class="cart_image">
+                    <img src="<?php echo $product['thumb']; ?>"/>
+                </div>
             </a>
         <?php } ?>
         </div>
         
-        <div class="col-md-3">
+        <div class="col-md-6 col-xs-6">
             <div class="buttons-cart__inner">
             <a href="<?php echo $product['href']; ?>" class="cart-td-head"><?php echo $product['name']; ?></a>
             <div class="cart-products__item-atrs">
@@ -131,10 +127,9 @@
                 <?php echo $text_recurring ?>: <?php echo $product['recurring']; ?><br />
                 <?php } ?>
             </div>
-            <a href="<?php echo $product['cart_id']; ?>" data-tooltip="<?php echo $button_remove; ?>" class="button-remove sq_icon" data-remove="<?php echo $product['cart_id']; ?>"><?php echo $text_remove_but; ?></a>
+           
             </div>
-        </div>
-        <div class="col-md-3">
+
             <div class="quantity__inner">
                 <p class="cart-td-head"><?php echo $text_quantity; ?></p>
                 <?php if ($edit_cart) { ?>
@@ -148,17 +143,15 @@
                   x&nbsp;<?php echo $product['quantity']; ?>
                   <?php } ?>
             </div>
-        </div>
-        <div class="col-md-3">
+             <a href="<?php echo $product['cart_id']; ?>" data-tooltip="<?php echo $button_remove; ?>" class="button-remove sq_icon" data-remove="<?php echo $product['cart_id']; ?>"><?php echo $text_remove_but; ?></a>
             <div class="unit-price__inner">
-                <p class="cart-td-head"><?php echo $text_price; ?></p>
-                <p><?php echo $product['price']; ?></p>
+                <p class="cart-td-head"><?php echo $text_price; ?>: <?php echo $product['price']; ?></p>
                 <?php if($product['old_price']){ ?>
                     <p style='text-decoration: line-through;'><?php echo $product['old_price']; ?></p>
                 <?php } ?>
             </div>
         </div>
-        
+        </div>
         </div>
         <?php } ?>
         <?php } ?>
@@ -166,7 +159,7 @@
     </div>
 
 
-<div class="cart-total-info">
+<!--<div class="cart-total-info">
 
   <div class="cart-total-info__table">
     <table class="quickcheckout-cart contrast_font left-tab" style="margin-top:-1px">
@@ -190,4 +183,13 @@
   </div>
 
 
-</div></div>
+</div>--></div>
+  
+  <div class="cart-tot visible-xs visible-sm">
+    <?php foreach ($totals as $total) { ?>
+          <div class="row_total">
+            <div class="item_total"><?php echo $total['title']; ?>:</div>
+            <div class="item_total right"><?php echo $total['text']; ?></div>
+          </div>
+    <?php } ?>
+  </div>

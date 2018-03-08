@@ -143,7 +143,7 @@
                 </li>
                 
         <?php } ?>
-               <li><a class="mmobile-wicon" href="<?php echo $our_stores; ?>" class=""><?php echo $informations[9]['title']; ?><i class="fa fa-map-marker" aria-hidden="true"></i></a></li>
+               <!--<li><a class="mmobile-wicon" href="<?php echo $our_stores; ?>" class=""><?php echo $informations[9]['title']; ?><i class="fa fa-map-marker" aria-hidden="true"></i></a></li>-->
                 <li><a class="mmobile-wicon" href="<?php echo $customer_service; ?>"><?php echo $text_customer; ?> <i class=""><img src="/image/menu_icon_phone2.png" alt=""></i></a></li>
                 <li><a class="mmobile-wicon" href="<?php echo $login; ?>"><?php echo $text_login; ?> <i class="icon-maaan"></i></a></li>
 
@@ -348,7 +348,7 @@
                 <li class="column level2"><a href="<?php echo $my_company; ?>"><?php echo $text_about; ?></a></li>
                 <li class="column level2"><a href="<?php echo $contact; ?>"><?php echo $text_sotr; ?></a></li>
                 <li class="column level2"><a href="<?php echo $our_production; ?>"><?php echo $text_our_prod; ?></a></li>
-                <li class="column level2"><a href="<?php echo $our_stores; ?>"><?php echo $informations[9]['title']; ?></a></li>
+                <!--<li class="column level2"><a href="<?php echo $our_stores; ?>"><?php echo $informations[9]['title']; ?></a></li>-->
                 <li class="column level2"><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
                 
                 

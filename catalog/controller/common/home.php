@@ -54,15 +54,15 @@ class ControllerCommonHome extends Controller {
                 //     'name' => $this->model_catalog_category->getCategory(69)['name'],
                 //     'link' => $this->url->link('product/category', 'path=69', false, $this->session->data['country_code'], $this->session->data['language_name']),
                 // );
-                
+                /*
                 $data['categories2'][] = array(
                     'name' => $this->model_catalog_category->getCategory(70)['name'],
                     'link' => $this->url->link('product/category', 'path=70', false, $this->session->data['country_code'], $this->session->data['language_name']),
-                );
+                );*//*
                 $data['categories2'][] = array(
                     'name' => $this->model_catalog_category->getCategory(71)['name'],
                     'link' => $this->url->link('product/category', 'path=71', false, $this->session->data['country_code'], $this->session->data['language_name']),
-                );
+                );*/
                 $data['categories2'][] = array(
                     'name' => $this->model_catalog_category->getCategory(72)['name'],
                     'link' => $this->url->link('product/category', 'path=72', false, $this->session->data['country_code'], $this->session->data['language_name']),
