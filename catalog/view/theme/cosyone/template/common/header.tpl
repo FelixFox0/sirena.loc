@@ -295,8 +295,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div></li>
     <?php } ?>
         <?php if($cosyone_custom_menu_title1){ ?>
-    <li class="col1 withsubs">
+    <li class="col1">
                     <a href="<?php echo $cosyone_custom_menu_url1 ?>" class="hvr-underline-from-center"><?php echo $cosyone_custom_menu_title1; ?></a>
+                    <?php if(false){ ?>
                     <div class="menu_drop_down">
                       <div class="wrapper">
                         <ul>
@@ -311,7 +312,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                         </div>
                       </div>
-                  </div>
+                    </div>
+                    <?php } ?>
                 </li>
 
         <?php } ?>
@@ -329,7 +331,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <ul>
                 <li class="column level2"><a href="<?php echo $my_company; ?>"><?php echo $text_about; ?></a></li>
                 <li class="column level2"><a href="<?php echo $contact; ?>"><?php echo $text_sotr; ?></a></li>
-                <li class="column level2"><a href="<?php echo $our_production; ?>"><?php echo $text_our_prod; ?></a></li>
+                <!--<li class="column level2"><a href="<?php echo $our_production; ?>"><?php echo $text_our_prod; ?></a></li>-->
                 <!--<li class="column level2"><a href="<?php echo $our_stores; ?>"><?php echo $informations[9]['title']; ?></a></li>-->
                 <li class="column level2"><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
 

@@ -1006,12 +1006,12 @@ a.sq_tag {
 	display:block;
 	padding: 0px 20px;
 }
-#menu > ul > li.withsubs > a {
+#menu > ul > li > a {
 	padding: 5px 0;
 }
 
 
-.header3 #menu > ul > li.withsubs > a {
+.header3 #menu > ul > li > a {
 	padding: 0 15px;
 
 }
@@ -1030,7 +1030,7 @@ a.sq_tag {
 #menu > ul > li:hover > a {
 	position:relative;
 }
-#menu > ul > li.withsubs > a {
+#menu > ul > li > a {
 	letter-spacing: 2px;
 }
 /* Arrow for categories that have sub categories */

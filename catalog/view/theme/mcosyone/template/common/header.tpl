@@ -65,10 +65,10 @@
 <!--   <li><a href="/index.php?route=product/search" class="mmobile-search"><?php echo $text_search2; ?> <i class=""><img src="/image/icon_search.png" alt=""></i></a></li> -->
        <?php if ($categories) { ?>
        <?php foreach ($categories as $category_1) { ?>
-        <?php if ($category_1['category_1_id'] == $category_1_id) { ?>
+        <?php if ($category_1['children']) { ?>
     <li class="col<?php echo $category_1['column']; ?>"><span href="<?php echo $category_1['href']; ?>" class="mmobile-wicon mm-fullsubopen"><?php echo $category_1['name']; ?><i class="fa fa-angle-right"></i></span>
          <?php } else { ?>
-         <li class="col<?php echo $category_1['column']; ?>"><span href="<?php echo $category_1['href']; ?>" class="mmobile-wicon mm-fullsubopen"><?php echo $category_1['name']; ?><i class="fa fa-angle-right"></i></span>
+         <li class="col<?php echo $category_1['column']; ?>"><a href="<?php echo $category_1['href']; ?>" class="mmobile-wicon mm-fullsubopen"><?php echo $category_1['name']; ?></a>
          <?php } ?>
           <?php if ($category_1['children']) { ?>
 
@@ -118,12 +118,12 @@
     <?php } ?>
         <?php if($cosyone_custom_menu_title1){ ?>
           <li class="">
-            <span href="<?php echo $cosyone_custom_menu_url1 ?>" class="mmobile-wicon"><?php echo $cosyone_custom_menu_title1; ?><i class="fa fa-angle-right"></i></span>
-                <ul>
+            <a href="<?php echo $cosyone_custom_menu_url1 ?>" class="mmobile-wicon"><?php echo $cosyone_custom_menu_title1; ?></a>
+                <!--<ul>
                   <li><span class="back_btn"><i class="fa fa-angle-left"> </i><?php echo $text_back; ?></span></li>
                   <li class=""><a href="<?php echo $blog ?>"><?php echo $text_blog ?></a></li>
                   <li class=""><a href="https://www.instagram.com/fidelitti/" target="_blank">#Fidelittigirls</a></li>
-                </ul>
+                </ul>-->
           </li>
              
         <?php } ?>
@@ -135,7 +135,7 @@
                   <li><span class="back_btn"><i class="fa fa-angle-left"> </i><?php echo $text_back; ?></span></li>
                   <li class=""><a href="<?php echo $my_company; ?>"><?php echo $text_about; ?></a></li>
                   <li class=""><a href="<?php echo $contact; ?>"><?php echo $text_sotr; ?></a></li>
-                  <li class=""><a href="<?php echo $our_production; ?>"><?php echo $text_our_prod; ?></a></li>
+                  <!--<li class=""><a href="<?php echo $our_production; ?>"><?php echo $text_our_prod; ?></a></li>-->
                   <li class=""><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
                 </ul>
 
@@ -594,6 +594,8 @@ if($countries){
     $(window).resize(function() {
         $('#cart-panel').width($(window).width());
     });
+    
+    //setInterval($('#cart-panel').width($(window).width()), 2000);
     
     $(document).delegate('#cart-total', 'click', function(e) {
         //console.log(e);

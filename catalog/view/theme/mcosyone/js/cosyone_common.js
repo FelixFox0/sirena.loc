@@ -266,7 +266,7 @@ var cart = {
 					$('#cart').load('/index.php?route=common/cart/info #cart > *'); //Added
 
 					$("#cart-panel .mm-panels > *").load('/index.php?route=common/cart/info #cart > *');
-
+/*
 					if($(window).innerWidth() > 1100) {
 						$.magnificPopup.open({
 						  items: {
@@ -277,10 +277,15 @@ var cart = {
 					} else {
 						
 					}
-					
+*/					
 				}
-
-
+//console.log($(window).width());
+//console.log($('#cart-panel').width());
+setTimeout(function(){
+    $('#cart-panel').width($(window).width()); 
+    $("#cart-total").trigger("click");
+    }, 200);
+//$('#cart-panel').width($(window).width());
 			}
 		});
 	},

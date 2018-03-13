@@ -17,8 +17,8 @@
   <div class="box-content">
   <p class="contrast_font intro"><?php echo $entry_email; ?></p>
              <input type="text" value="" placeholder="<?php echo $text_email; ?>" name="email" id="newsletter_email<?php echo $module; ?>" class="form-control" />
-             <a class="button" id="button-newsletter<?php echo $module; ?>"><span><?php echo $button_join; ?></span></a>
-             <span><?php echo $text_info; ?></span>
+             <a class="button" id="button-newsletter<?php echo $module; ?>"><span>></span></a>
+             <!--<span><?php //echo $text_info; ?></span>-->
 	</div>
 </div>
 
@@ -47,7 +47,7 @@
 
 <?php if(!isset($_COOKIE['newsletter_already_popup'])) { ?>
 <script type="text/javascript">
-$(document).ready(function() {	
+/*$(document).ready(function() {	
 if ($(window).width() > 760) {
 	setTimeout(function() {	
 		$('.popup_mask').fadeTo(750,0.5);	
